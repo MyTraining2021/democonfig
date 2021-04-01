@@ -1,5 +1,5 @@
 server:  port: 8083
-info:  application:    name: customerapp    version: 1.0    desc: Provides Customer and Product CRUD operationseureka:  instance:    lease-renewal-interval-in-seconds: 1    lease-expiration-duration-in-seconds: 2  client:    service-url:      defaultZone: http://127.0.0.1:8761/eureka/      healthcheck:      enabled: true    lease:      duration: 5      logging:  level:    org.cap.demo: DEBUG        
+info:  application:    name: customerapp    version: 1.0    desc: Provides Customer and Product CRUD operationseureka:  instance:    instance-id: 1    lease-renewal-interval-in-seconds: 1    lease-expiration-duration-in-seconds: 2  client:    service-url:      defaultZone: http://127.0.0.1:8761/eureka/      healthcheck:      enabled: true    lease:      duration: 5      logging:  level:    org.cap.demo: DEBUG        
 spring:  boot:    admin:      client:        url:        - http://localhost:8080/  #security:   # user:    #  name: admin     # password: admin123  application:    name: customerapp
   jpa:
     generate-ddl: true
