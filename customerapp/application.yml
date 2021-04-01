@@ -1,0 +1,13 @@
+server:  port: 8083
+info:  application:    name: customerapp    version: 1.0    desc: Provides Customer and Product CRUD operationseureka:  instance:    lease-renewal-interval-in-seconds: 1    lease-expiration-duration-in-seconds: 2  client:    service-url:      defaultZone: http://127.0.0.1:8761/eureka/      healthcheck:      enabled: true    lease:      duration: 5      logging:  level:    org.cap.demo: DEBUG        
+spring:  boot:    admin:      client:        url:        - http://localhost:8080/  #security:   # user:    #  name: admin     # password: admin123  application:    name: customerapp
+  jpa:
+    generate-ddl: true
+    show-sql: true
+management:  endpoint:    health:      show-details: always  server:    port: 8085  endpoints:    web:      exposure:        include:        - '*'---
+spring:
+  profiles:  - prod
+  - qa  datasource:    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/marchdb
+    username: root
+    password: admin---spring:  profiles:  - dev  - default  datasource:    url: jdbc:h2:file:~/marchdb    username: sa    password:   h2:    console:      enabled: true      path: /h2       
